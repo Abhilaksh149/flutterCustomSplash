@@ -1,3 +1,3 @@
-library custom_splash_screen;
+library flutter_custom_splash_screen;
 
 export 'src/splash_screen.dart';
