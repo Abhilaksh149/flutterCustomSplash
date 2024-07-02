@@ -1,7 +1,7 @@
 name: flutter_custom_splash_screen
 description: "Customized Splash Screen"
 version: 0.0.2
-homepage: https://github.com/aKaushik941/customSplashScreen
+homepage: https://github.com/Abhilaksh149/flutterCustomSplash
 
 environment:
   sdk: '>=3.2.3 <4.0.0'
