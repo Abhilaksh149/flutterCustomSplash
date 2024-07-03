@@ -1,3 +1,3 @@
-## 0.0.3
+## 0.0.4
 
-Added the changelog file 
+Added the example file 
