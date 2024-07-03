@@ -1,15 +1,5 @@
-<!--
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
 
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/guides/libraries/writing-package-pages).
-
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-library-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/developing-packages).
--->
+# Flutter Custom Splash Screen 
 
 When your app is opened, there is a brief period while the app loads.
 By default, during this time, the app displays a white splash screen.
@@ -19,8 +9,39 @@ enhancing the user experience. Once the splash screen loads completely,
 you can navigate to the next screen using the navigateToNextScreen callback function
 
 
+## Features
+
+- Flutter custom splash screen.
+- Customizable with background image and your logo image.
+- Loading percentage indicator with customizable color.
+- Callback function to handle navigation once the splash screen is completely loaded.
+- Customizable height and width of the logo image container.
+
+## Installation
+
+Add the following line to your `pubspec.yaml` file:
+
+```yaml
+dependencies:
+  flutter_custom_splash_screen: ^latest_version
+```
+
+Then run `flutter pub get` to install the package.
+
+### Usage
+
+Here is a simple example of how to use the flutter custom splash screen:
+
+
 ```dart
-class CompanionApp extends StatelessWidget {
+import 'package:flutter/material.dart';
+import 'package:flutter_custom_splash_screen/flutter_custom_splash_screen.dart';
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -39,4 +60,9 @@ class CompanionApp extends StatelessWidget {
 }
 
 ```
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
 
