@@ -11,27 +11,40 @@ class SplashScreen extends StatefulWidget {
   final double? fontSize;
   final Function? navigateToNextScreen;
 
-  const SplashScreen({Key? key, required this.bgImage, required this.logoImage, required this.logoHeight, required this.logoWidth, required this.logoColor, required this.logoBgColor, required this.textColor, this.navigateToNextScreen, this.fontSize}) : super(key: key);
+  const SplashScreen(
+      {Key? key,
+      required this.bgImage,
+      required this.logoImage,
+      required this.logoHeight,
+      required this.logoWidth,
+      required this.logoColor,
+      required this.logoBgColor,
+      required this.textColor,
+      this.navigateToNextScreen,
+      this.fontSize})
+      : super(key: key);
 
   @override
   State<SplashScreen> createState() => _SplashScreenState();
 }
 
-class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderStateMixin {
+class _SplashScreenState extends State<SplashScreen>
+    with SingleTickerProviderStateMixin {
   late AnimationController controller;
   late Animation animation;
-  double beginAnim = 0.0 ;
-  double endAnim = 1.0 ;
+  double beginAnim = 0.0;
+  double endAnim = 1.0;
 
   @override
   void initState() {
     super.initState();
-    controller = AnimationController(
-        duration: const Duration(seconds: 2), vsync: this);
+    controller =
+        AnimationController(duration: const Duration(seconds: 2), vsync: this);
     animation = Tween(begin: beginAnim, end: endAnim).animate(controller)
       ..addListener(() {
         setState(() {
           if (animation.value == 1.0) {
+            /// Call Back Function used for navigation
             widget.navigateToNextScreen;
           }
         });
@@ -45,10 +58,9 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
     super.dispose();
   }
 
-  void startProgress(){
+  void startProgress() {
     controller.forward();
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -65,11 +77,13 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            ///Logo Image
             SizedBox(
               height: widget.logoHeight,
-              width:  widget.logoWidth,
+              width: widget.logoWidth,
               child: Image.asset(widget.logoImage),
             ),
+            ///Loader is Handled here
             Container(
                 width: MediaQuery.of(context).size.width * 0.30,
                 height: 50,
@@ -81,11 +95,11 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
                     color: widget.logoColor,
                     backgroundColor: widget.logoBgColor,
                   ),
-                )
-            ),
+                )),
+            ///Loading Percentage is shown here
             Text(
               "${(animation.value * 100).round().toString()}%",
-              style:  TextStyle(
+              style: TextStyle(
                 fontSize: widget.fontSize,
                 color: widget.textColor,
               ),
